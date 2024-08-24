@@ -1,0 +1,38 @@
+<html>
+	<head>
+		<script type="module" crossorigin src="https://cdn.jsdelivr.net/npm/@gradio/lite/dist/lite.js"></script>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@gradio/lite/dist/lite.css" />
+	</head>
+	<body>
+		<gradio-lite>
+import gradio as gr
+from js import self
+
+session = []
+try:
+    can_ai_create = await self.ai.canCreateTextSession()
+    if can_ai_create != "no":
+        session = await self.ai.createTextSession()
+except:
+    pass
+
+
+self.ai_text_session = session
+
+
+async def prompt(message, history):
+    session = self.ai_text_session
+    if not session:
+        raise Exception("あなたのブラウザでは利用できません。")
+
+    stream = session.promptStreaming(message)
+    async for chunk in stream:
+        yield chunk
+
+
+demo = gr.ChatInterface(fn=prompt)
+
+demo.launch()
+		</gradio-lite>
+	</body>
+</html>
