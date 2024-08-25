@@ -1,25 +1,33 @@
-<html>
+<!-- ChromeのLLM機能を利用するためのサンプルコード -->
+<html lang="ja">
 	<head>
 		<script type="module" crossorigin src="https://cdn.jsdelivr.net/npm/@gradio/lite/dist/lite.js"></script>
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@gradio/lite/dist/lite.css" />
+        <meta charset="UTF-8">
 	</head>
 	<body>
 		<gradio-lite>
+# ここから下はPythonのコードなので、編集時にはインデント関係に注意すること
 import gradio as gr
 from js import self
 
 session = []
+
+# LLM機能のサポート確認
 try:
     can_ai_create = await self.ai.canCreateTextSession()
     if can_ai_create != "no":
         session = await self.ai.createTextSession()
 except:
+    if not session:
+        raise Exception("あなたのブラウザでは利用できません。")
     pass
 
 
 self.ai_text_session = session
 
-
+# プロンプトを送信すると呼び出される
+# ストリーミングで動作する
 async def prompt(message, history):
     session = self.ai_text_session
     if not session:
