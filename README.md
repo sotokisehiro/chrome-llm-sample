@@ -38,3 +38,11 @@ Chrome ブラウザで動作する文章生成 AI のサンプルコードです
 
 llm.html を Chrome で読み込んでください。次のような画面が表示されたら成功です。お楽しみください。
 ![LLM画面](llm.png)
+
+## お試し
+
+llm.html をダウンロードする前に
+[こちら](https://sotokisehiro.github.io/chrome-llm-sample/llm.html)
+で動作確認することもできます。
+
+※先に Chrome の事前設定は済ませておいてください。
