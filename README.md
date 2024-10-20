@@ -29,7 +29,7 @@ Chrome ブラウザで動作する文章生成 AI のサンプルコードです
 ※もし 「Optimization Guide On Device Model」 が表示されない場合は、Chrome の開発者モードでコンソールを開き、次のコードを実行してください。
 
 ```
-    await window.ai.createTextSession();
+    await window.ai.assistant.create();
 ```
 
 エラーが出ますが問題ありません。
