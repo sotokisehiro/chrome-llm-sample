@@ -15,9 +15,7 @@ session = []
 
 # LLM機能のサポート確認
 try:
-    can_ai_create = await self.ai.canCreateTextSession()
-    if can_ai_create != "no":
-        session = await self.ai.createTextSession()
+    session = await self.ai.assistant.create()
 except:
     if not session:
         raise Exception("あなたのブラウザでは利用できません。")
