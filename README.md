@@ -6,7 +6,7 @@ Chrome ブラウザで動作する文章生成 AI のサンプルコードです
 
 ## Chrome の事前設定
 
--   バージョン 130 以降の Chrome が必要です。
+-   バージョン 131 以降の Chrome が必要です。ただしV131では英語のみ対応で、V132以降では日本語にも対応しています。
 -   Chrome を起動します。
 -   Chrome のアドレスバーに `chrome://flags` と入力して設定画面を開き、次の項目を設定します。
 
@@ -29,7 +29,7 @@ Chrome ブラウザで動作する文章生成 AI のサンプルコードです
 ※もし 「Optimization Guide On Device Model」 が表示されない場合は、Chrome の開発者モードでコンソールを開き、次のコードを実行してください。
 
 ```
-    await window.ai.assistant.create();
+    await ai.languageModel.create()
 ```
 
 エラーが出ますが問題ありません。
