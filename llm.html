@@ -1,4 +1,5 @@
-<!-- ChromeのLLM機能を利用するためのサンプルコード -->
+<!-- ChromeのLLM機能を利用するためのサンプルコード 2024/11/19 更新 Chrome V131以降で動作する -->
+<!-- 注：現在V131では英語のみサポート -->
 <html lang="ja">
 	<head>
 		<script type="module" crossorigin src="https://cdn.jsdelivr.net/npm/@gradio/lite/dist/lite.js"></script>
@@ -15,12 +16,12 @@ session = []
 
 # LLM機能のサポート確認
 try:
-    session = await self.ai.assistant.create()
+    session = await self.ai.languageModel.create()
 except:
     if not session:
-        raise Exception("あなたのブラウザでは利用できません。")
+        raise Exception("あなたのブラウザでは利用できません。1")
     pass
-
+self.ai.languageModel.capabilities();
 
 self.ai_text_session = session
 
@@ -29,7 +30,7 @@ self.ai_text_session = session
 async def prompt(message, history):
     session = self.ai_text_session
     if not session:
-        raise Exception("あなたのブラウザでは利用できません。")
+        raise Exception("あなたのブラウザでは利用できません。2")
 
     stream = session.promptStreaming(message)
     async for chunk in stream:
