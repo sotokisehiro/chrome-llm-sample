@@ -6,7 +6,7 @@ Chrome ブラウザで動作する文章生成 AI のサンプルコードです
 
 ## Chrome の事前設定
 
--   バージョン 131 以降の Chrome が必要です。ただしV131では英語のみ対応で、V132以降では日本語にも対応しています。
+-   バージョン 132 以降の Chrome が必要です。
 -   Chrome を起動します。
 -   Chrome のアドレスバーに `chrome://flags` と入力して設定画面を開き、次の項目を設定します。
 
@@ -14,6 +14,8 @@ Chrome ブラウザで動作する文章生成 AI のサンプルコードです
 1. 「Enables optimization guide on device」の値を 「Enabled BypassPerfRequirement」 に設定。
 
 2. 「Prompt API for Gemini Nano」の値を「Enable」に設定。
+
+3. 「Text Safety Classifier」の値を「Enabled Executes safety classifier but no retraction of output」に設定。（V132で追加）
 ```
 
 -   Chrome を再起動します。
